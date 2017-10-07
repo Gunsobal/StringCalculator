@@ -44,4 +44,9 @@ public class CalculatorTest
             throw e;
         }
     }
+
+    @Test
+    public void itIgnoresNumbersOverThousand(){
+        assertEquals(2, Calculator.add("1001,2"));
+    }
 }

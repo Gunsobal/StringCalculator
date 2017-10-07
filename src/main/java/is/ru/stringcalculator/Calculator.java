@@ -18,7 +18,10 @@ public class Calculator
     private static int sum(String[] numbers){
         int sum = 0;
         for (String number : numbers){
-            sum += toInt(number);
+            int n = toInt(number);
+            if (n < 1000){
+                sum += n;
+            }
         }
         return sum;
     }
