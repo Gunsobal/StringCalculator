@@ -54,4 +54,9 @@ public class CalculatorTest
     public void itCanHandleDifferentDelimiters(){
         assertEquals(3, Calculator.add("//;\n1;2"));
     }
+
+    @Test
+    public void itDoesntIgnoreThousand(){
+        assertEquals(1001, Calculator.add("1000,1"));
+    }
 }

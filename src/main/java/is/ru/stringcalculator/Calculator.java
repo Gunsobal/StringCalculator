@@ -30,7 +30,7 @@ public class Calculator
         int sum = 0;
         for (String number : numbers){
             int n = toInt(number);
-            if (n < 1000){
+            if (n <= 1000){
                 sum += n;
             }
         }
