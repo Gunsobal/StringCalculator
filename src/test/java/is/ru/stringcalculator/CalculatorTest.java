@@ -19,4 +19,9 @@ public class CalculatorTest
     public void itReturnsTheSumOfTwoNumbers(){
         assertEquals(3, Calculator.add("1,2"));
     }
+
+    @Test
+    public void itReturnsTheSumOfUnknownManyNumbers(){
+        assertEquals(6, Calculator.add("1,2,3"));
+    }
 }

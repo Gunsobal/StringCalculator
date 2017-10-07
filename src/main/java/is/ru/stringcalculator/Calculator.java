@@ -6,7 +6,11 @@ public class Calculator
         if (text == "") return 0;
         if (text.contains(",")){
             String[] numbers = text.split(",");
-            return toInt(numbers[0]) + toInt(numbers[1]);
+            int sum = 0;
+            for (String number : numbers){
+                sum += toInt(number);
+            }
+            return sum;
         }
         return 1;
     }
