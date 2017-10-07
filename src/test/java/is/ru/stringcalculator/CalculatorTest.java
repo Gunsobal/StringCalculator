@@ -9,4 +9,9 @@ public class CalculatorTest
     public void itReturnsZeroForEmptyString() {
         assertEquals(0, Calculator.add(""));
     }
+
+    @Test
+    public void itReturnsTheNumberForSingleNumbers(){
+        assertEquals(1, Calculator.add("1"));
+    }
 }
