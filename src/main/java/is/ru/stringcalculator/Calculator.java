@@ -7,16 +7,7 @@ public class Calculator
     public static int add(String text){
         if (text == "") return 0;
         String[] numbers = text.split(",|\n");
-        String negatives = "";
-        for (String number : numbers){
-            if (toInt(number) < 0){
-                negatives += number + ",";
-            }
-        }
-        if (negatives != ""){
-            String message = String.format("Negatives not allowed: %s", negatives.substring(0, negatives.length() - 1));
-            throw new IllegalArgumentException(message);
-        }
+        checkNegatives(numbers);
         return sum(numbers);
     }
 
@@ -30,5 +21,18 @@ public class Calculator
             sum += toInt(number);
         }
         return sum;
+    }
+
+    private static void checkNegatives(String[] numbers){
+        String negatives = "";
+        for (String number : numbers){
+            if (toInt(number) < 0){
+                negatives += number + ",";
+            }
+        }
+        if (negatives != ""){
+            String message = String.format("Negatives not allowed: %s", negatives.substring(0, negatives.length() - 1));
+            throw new IllegalArgumentException(message);
+        }
     }
 }
