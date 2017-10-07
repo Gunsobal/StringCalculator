@@ -1,5 +1,7 @@
 package is.ru.stringcalculator;
 
+import java.lang.IllegalArgumentException;
+
 public class Calculator
 {
     public static int add(String text){
@@ -18,6 +20,9 @@ public class Calculator
     private static int sum(String[] numbers){
         int sum = 0;
         for (String number : numbers){
+            if (toInt(number) < 0){
+                throw new IllegalArgumentException(String.format("Negatives not allowed: %s", number));
+            }
             sum += toInt(number);
         }
         return sum;
