@@ -6,16 +6,20 @@ public class Calculator
 {
     public static int add(String text){
         if (text == "") return 0;
+        String[] numbers = splitNumbers(text);
+        checkNegatives(numbers);
+        return sum(numbers);
+    }
+
+    private static String[] splitNumbers(String text){
         String delimiter = ",|\n";
-        String nums = text;
+        String numbers = text;
         if (text.startsWith("//")){
             String[] split = text.split("\n", 2);
             delimiter = split[0].substring(2);
-            nums = split[1];            
+            numbers = split[1];            
         }
-        String[] numbers = nums.split(delimiter);
-        checkNegatives(numbers);
-        return sum(numbers);
+        return numbers.split(delimiter);
     }
 
     private static int toInt(String number){
