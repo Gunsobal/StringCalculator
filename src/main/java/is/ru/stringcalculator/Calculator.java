@@ -7,10 +7,15 @@ public class Calculator
     public static int add(String text){
         if (text == "") return 0;
         String[] numbers = text.split(",|\n");
+        String negatives = "";
         for (String number : numbers){
             if (toInt(number) < 0){
-                throw new IllegalArgumentException(String.format("Negatives not allowed: %s", number));
+                negatives += number + ",";
             }
+        }
+        if (negatives != ""){
+            String message = String.format("Negatives not allowed: %s", negatives.substring(0, negatives.length() - 1));
+            throw new IllegalArgumentException(message);
         }
         return sum(numbers);
     }
