@@ -5,7 +5,7 @@ public class Calculator
     public static int add(String text){
         if (text == "") return 0;
         if (text.contains(",")){
-            String[] numbers = text.split(",");
+            String[] numbers = text.split(",|\n");
             return sum(numbers);
         }
         return 1;
