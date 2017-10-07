@@ -6,7 +6,14 @@ public class Calculator
 {
     public static int add(String text){
         if (text == "") return 0;
-        String[] numbers = text.split(",|\n");
+        String delimiter = ",|\n";
+        String nums = text;
+        if (text.startsWith("//")){
+            String[] split = text.split("\n", 2);
+            delimiter = split[0].substring(2);
+            nums = split[1];            
+        }
+        String[] numbers = nums.split(delimiter);
         checkNegatives(numbers);
         return sum(numbers);
     }
