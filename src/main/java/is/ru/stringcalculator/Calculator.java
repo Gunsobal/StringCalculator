@@ -5,8 +5,8 @@ import java.lang.IllegalArgumentException;
 public class Calculator
 {
     public static int add(String text){
-        if (text == "") return 0;
         String[] numbers = splitNumbers(text);
+        if (numbers[0].length() == 0) return 0;
         checkNegatives(numbers);
         return sum(numbers);
     }
@@ -17,7 +17,7 @@ public class Calculator
         if (text.startsWith("//")){
             String[] split = text.split("\n", 2);
             delimiter = split[0].substring(2);
-            numbers = split[1];            
+            numbers = split[1];
         }
         return numbers.split(delimiter);
     }

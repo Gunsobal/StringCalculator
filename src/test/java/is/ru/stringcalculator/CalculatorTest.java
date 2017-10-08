@@ -59,4 +59,9 @@ public class CalculatorTest
     public void itDoesntIgnoreThousand(){
         assertEquals(1001, Calculator.add("1000,1"));
     }
+
+    @Test
+    public void itReturnsZeroForEmptyAfterDelimiterChange(){
+        assertEquals(0, Calculator.add("//;\n"));
+    }
 }
