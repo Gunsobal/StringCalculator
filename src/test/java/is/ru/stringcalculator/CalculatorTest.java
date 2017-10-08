@@ -64,4 +64,9 @@ public class CalculatorTest
     public void itReturnsZeroForEmptyAfterDelimiterChange(){
         assertEquals(0, Calculator.add("//;\n"));
     }
+
+    @Test
+    public void itReturnsOneNumberWithCustomDelimiter(){
+        assertEquals(1, Calculator.add("//;\n1"));
+    }
 }
